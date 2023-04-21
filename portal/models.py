@@ -34,7 +34,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for users in the system"""
     team_name = models.CharField(max_length=150, null= True)
     leader_name = models.CharField(max_length=150, null= True)
-    leader_email = models.CharField(max_length=150, null= True, unique=True)
+    leader_email = models.CharField(max_length=150, primary_key=True)
     leader_hosteler = models.CharField(max_length=150, null= True)
     leader_year = models.CharField(max_length=150, null= True)
     leader_branch = models.CharField(max_length=150, null= True)
