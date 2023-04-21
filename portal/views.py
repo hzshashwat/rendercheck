@@ -17,6 +17,88 @@ class UsersImport(View):
             no_of_entries = len(data)
 
             for i in range(0, no_of_entries):
+
+                # if data[i]['team_name'] is not None:
+                #     team_name = data[i]['team_name']
+                # else:
+                #     team_name = " "
+
+                # if data[i]['leader_name'] is not None:
+                #     leader_name = data[i]['leader_name']
+                # else:
+                #     leader_name = " "
+                    
+                # if data[i]['leader_email'] is not None:
+                #     leader_email = data[i]['leader_email']
+                # else:
+                #     leader_email = " "
+                
+                # if data[i]['leader_hosteler'] is not None:
+                #     leader_hosteler = data[i]['leader_hosteler']
+                # else:
+                #     leader_hosteler = " "
+
+                # if data[i]['leader_year'] is not None:
+                #     leader_year = data[i]['leader_year']
+                # else:
+                #     leader_year = " "
+
+                # if data[i]['leader_branch'] is not None:
+                #     leader_branch = data[i]['leader_branch']
+                # else:
+                #     leader_branch = " "
+                    
+                # if data[i]['leader_rollNo'] is not None:
+                #     leader_rollNo = data[i]['leader_rollNo']
+                # else:
+                #     leader_rollNo = " "
+                    
+                # if data[i]['leader_phoneNo'] is not None:
+                #     leader_phoneNo = data[i]['leader_phoneNo']
+                # else:
+                #     leader_phoneNo = " "                    
+
+                # if data[i]['member_name'] is not None:
+                #     member_name = data[i]['member_name']
+                # else:
+                #     member_name = "Not provided"
+                                        
+                # if data[i]['member_phoneNo'] is not None:
+                #     member_phoneNo = data[i]['member_phoneNo']
+                # else:
+                #     member_phoneNo = "Not provided"
+                                        
+                # if data[i]['member_branch'] is not None:
+                #     member_branch = data[i]['member_branch']
+                # else:
+                #     member_branch = "Not provided"
+                                        
+                # if data[i]['member_email'] is not None:
+                #     member_email = data[i]['member_email']
+                # else:
+                #     member_email = "Not provided"
+                                        
+                # if data[i]['member_rollNo'] is not None:
+                #     member_rollNo = data[i]['member_rollNo']
+                # else:
+                #     member_rollNo = "Not provided"
+                                        
+                # if data[i]['member_hosteler'] is not None:
+                #     member_hosteler = data[i]['member_hosteler']
+                # else:
+                #     member_hosteler = "Not provided"
+                                                            
+                # if data[i]['member_year'] is not None:
+                #     member_year = data[i]['member_year']
+                # else:
+                #     member_year = "Not provided"
+
+                # if data[i]['password'] is not None:
+                #     password = data[i]['password']
+                # else:
+                #     password = ""
+
+
                 team_name = data[i]['team_name']
                 leader_name = data[i]['leader_name']
                 leader_email = data[i]['leader_email']
@@ -54,8 +136,6 @@ class UsersImport(View):
                 user.member_year = member_year
 
                 user.save()
-
-                # user = UserProfile.objects.create(, password = password)
 
             return HttpResponse("Import Completed")
         
