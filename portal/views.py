@@ -7,6 +7,9 @@ from django.views import View
 import requests
 import json
 from portal.models import *
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 
 # Create your views here.
 class UsersImport(View):
@@ -141,3 +144,7 @@ class UsersImport(View):
         
         except Exception as e:
             return HttpResponse(str(e))
+        
+class UserLoginApiView(ObtainAuthToken):
+    """Handle creating user authentication tokens"""
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
