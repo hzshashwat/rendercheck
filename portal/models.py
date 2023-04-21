@@ -7,22 +7,22 @@ from django.core.validators import MaxValueValidator
 class UserProfileManager(BaseUserManager):
     """Manager for user profiles"""
 
-    def create_user(self, id, team_name, leader_name, leader_email, leader_hosteler, leader_year, leader_branch, leader_rollNo, leader_phoneNo, member_name, member_phoneNo, member_branch, member_email, member_rollNo, member_hosteler, member_year, selected_schema, final_submission_completed , password=None):
+    def create_user(self, id, leader_email, password=None):
         """Create a new user profile"""
         if not leader_email:
             raise ValueError('Users must have an email address')
 
         email = self.normalize_email(leader_email)
-        user = self.model(id, team_name = team_name, leader_name = leader_name, leader_email = leader_email, leader_hosteler = leader_hosteler, leader_year = leader_year, leader_branch = leader_branch, leader_rollNo = leader_rollNo, leader_phoneNo = leader_phoneNo, member_name = member_name, member_phoneNo = member_phoneNo, member_branch = member_branch, member_email = member_email, member_rollNo = member_rollNo, member_hosteler = member_hosteler, member_year = member_year, selected_schema = selected_schema, final_submission_completed = final_submission_completed)
+        user = self.model(id, leader_email = leader_email)
 
         user.set_password(password)
         user.save(using=self._db)
 
         return user
 
-    def create_superuser(self,id, team_name, leader_name, leader_email, leader_hosteler, leader_year, leader_branch, leader_rollNo, leader_phoneNo, member_name, member_phoneNo, member_branch, member_email, member_rollNo, member_hosteler, member_year, selected_schema, final_submission_completed , password):
+    def create_superuser(self, id, leader_email, password):
         """Create and save a new superuser with given details"""
-        user = self.create_user(id, team_name, leader_name, leader_email, leader_hosteler, leader_year, leader_branch, leader_rollNo, leader_phoneNo, member_name, member_phoneNo, member_branch, member_email, member_rollNo, member_hosteler, member_year, selected_schema, final_submission_completed , password)
+        user = self.create_user(id, leader_email, password)
 
         user.is_superuser = True
         user.is_staff = True
@@ -69,4 +69,4 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         """Return string representation of user"""
-        return self.email
+        return self.leader_email
