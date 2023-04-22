@@ -69,3 +69,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Return string representation of user"""
         return self.leader_email
+    
+class LeaderBoard(models.Model):
+    team = models.OneToOneField(UserProfile, on_delete=models.CASCADE, primary_key=True)
+    team_name = models.CharField(max_length=150)
+    score = models.IntegerField(default=0)
