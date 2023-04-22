@@ -10,6 +10,7 @@ from portal.models import *
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from portal.serializers import *
 
 # Create your views here.
 class UsersImport(View):
@@ -161,3 +162,32 @@ class CustomAuthToken(ObtainAuthToken):
             'token': token.key,
             'email': user.leader_email
         })
+    
+class ScoreApiViewSet(APIView):
+    serializer_class = LeaderBoardSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format = None):
+        try:
+            team = LeaderBoard.objects.get(team = self.request.user)
+            teamjson = LeaderBoardSerializer(team)
+            return Response({"message" : [teamjson.data]})
+
+        except Exception as e:
+            return Response({"error": str(e)})
+
+    # def post(self, request):
+    #     try:
+    #         profileobj = JobProviderProfileSerializer(data=request.data)
+    #         if profileobj.is_valid():
+    #             profileobj.validated_data['email'] = self.request.user
+    #             profileobj.validated_data['phone'] = self.request.user.phone
+    #             profileobj.save()
+    #             return Response({"message" : "JobProvider Profile Created"})
+    #         else :
+    #             return Response({"message": profileobj.errors,
+    #             "status": "Failed"
+    #             })
+    #     except Exception as e:
+    #         return Response({"error": str(e)})
