@@ -11,6 +11,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from portal.serializers import *
+import os
 
 # Create your views here.
 class UsersImport(View):
@@ -151,7 +152,6 @@ class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
-        print(request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
@@ -208,7 +208,6 @@ class SchemaSelection(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request, format= None):
         try:
-            print(self.request.user)
             team = UserProfile.objects.get(leader_email = self.request.user)
             
             team.selected_schema = request.data['schema']
@@ -222,10 +221,28 @@ class FinalSubmission(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request, format= None):
         try:
-            print(self.request.user)
             team = UserProfile.objects.get(leader_email = self.request.user)
             
             team.final_submission_completed = request.data['submitted']
+
+            # Save the HTML, CSS & JS files
+            team_name = team.team_name
+            team_name_underscored = team_name.replace(' ', '_')
+
+            html_code = request.data['html_code']
+            css_code = request.data['css_code']
+            js_code = request.data['js_code']
+
+            if not os.path.exists(f'Submitted_Code/{team_name_underscored}'):
+                os.makedirs(f'Submitted_Code/{team_name_underscored}')
+
+            with open(f'Submitted_Code/{team_name_underscored}/index.html', 'w') as f:
+                f.write(html_code)
+            with open(f'Submitted_Code/{team_name_underscored}/style.css', 'w') as f:
+                f.write(css_code)
+            with open(f'Submitted_Code/{team_name_underscored}/script.js', 'w') as f:
+                f.write(js_code)
+
             team.save()
             return Response({"message" : "Submitted"})
         except Exception as e:
