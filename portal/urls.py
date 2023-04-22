@@ -5,4 +5,5 @@ urlpatterns = [
     path('importusers/', UsersImport.as_view()),
     path('login/', CustomAuthToken.as_view()),
     path('score/', ScoreApiViewSet.as_view()),
+
 ]

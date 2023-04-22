@@ -177,17 +177,17 @@ class ScoreApiViewSet(APIView):
         except Exception as e:
             return Response({"error": str(e)})
 
-    # def post(self, request):
-    #     try:
-    #         profileobj = JobProviderProfileSerializer(data=request.data)
-    #         if profileobj.is_valid():
-    #             profileobj.validated_data['email'] = self.request.user
-    #             profileobj.validated_data['phone'] = self.request.user.phone
-    #             profileobj.save()
-    #             return Response({"message" : "JobProvider Profile Created"})
-    #         else :
-    #             return Response({"message": profileobj.errors,
-    #             "status": "Failed"
-    #             })
-    #     except Exception as e:
-    #         return Response({"error": str(e)})
+    def post(self, request):
+        try :
+            team = LeaderBoard.objects.get(team = self.request.user)
+            teamobj = LeaderBoardSerializer(team, data=request.data)
+            if teamobj.is_valid():
+                teamobj.save()
+                return Response({"message" : "Profile info updated."})
+            else :
+                return Response({"message": teamobj.errors,
+                "status": "Failed"
+                })
+        except Exception as e:
+            return Response({"error": str(e)})
+        
