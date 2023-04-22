@@ -191,3 +191,16 @@ class ScoreApiViewSet(APIView):
         except Exception as e:
             return Response({"error": str(e)})
         
+class LeaderBoardAPIView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format = None):
+        try:
+            
+            team = LeaderBoard.objects.all().values()
+            return Response({"message" : team})
+
+        except Exception as e:
+            return Response({"error": str(e)})
+        
