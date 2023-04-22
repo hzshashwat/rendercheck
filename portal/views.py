@@ -197,7 +197,6 @@ class LeaderBoardAPIView(APIView):
 
     def get(self, request, format = None):
         try:
-            
             team = LeaderBoard.objects.all().values()
             return Response({"message" : team})
 
@@ -215,5 +214,19 @@ class SchemaSelection(APIView):
             team.selected_schema = request.data['schema']
             team.save()
             return Response({"message" : "Schema Info Updated"})
+        except Exception as e:
+            return Response({"error" : str(e)})
+
+class FinalSubmission(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self, request, format= None):
+        try:
+            print(self.request.user)
+            team = UserProfile.objects.get(leader_email = self.request.user)
+            
+            team.final_submission_completed = request.data['submitted']
+            team.save()
+            return Response({"message" : "Submitted"})
         except Exception as e:
             return Response({"error" : str(e)})
