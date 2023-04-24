@@ -156,8 +156,11 @@ class CustomAuthToken(ObtainAuthToken):
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
 
-        LeaderBoard.objects.create(team = user, team_name = user.team_name)
-
+        try:
+            LeaderBoard.objects.create(team = user, team_name = user.team_name)
+        except:
+            pass
+        
         return Response({
             'token': token.key,
             'email': user.leader_email
