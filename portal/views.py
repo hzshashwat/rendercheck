@@ -7,6 +7,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from portal.serializers import *
 import os
+import requests
 
 # Create your views here.
 class UsersImport(APIView):
@@ -76,15 +77,28 @@ class ScoreApiViewSet(APIView):
 
     def post(self, request):
         try :
-            team = LeaderBoard.objects.get(team = self.request.user)
-            teamobj = LeaderBoardSerializer(team, data=request.data)
-            if teamobj.is_valid():
-                teamobj.save()
-                return Response({"message" : "Profile info updated."})
-            else :
-                return Response({"message": teamobj.errors,
-                "status": "Failed"
-                })
+            data = request.data
+            html_code = data["html_code"]
+            css_code = data["css_code"]
+
+            team = UserProfile.objects.get(leader_email = self.request.user)
+            selected_schema = team.selected_schema
+
+            score = LeaderBoard.objects.get(team = self.request.user)
+
+            if selected_schema == 1:
+                mlmodel_link = 'http://127.0.0.1:5000/deploy/'
+            elif selected_schema == 2:
+                mlmodel_link = ''
+            
+            post_data = {'html_code': html_code, 'css_code': css_code}
+            response = requests.post(mlmodel_link, data=post_data)
+            content = response.json()
+            mlmodel_output = content["score"]
+            score.score = mlmodel_output
+            score.save()
+            return Response({'score' : mlmodel_output})
+
         except Exception as e:
             return Response({"error": str(e)})
         
@@ -128,7 +142,6 @@ class FinalSubmission(APIView):
 
             html_code = request.data['html_code']
             css_code = request.data['css_code']
-            js_code = request.data['js_code']
 
             if not os.path.exists(f'Submitted_Code/{team_name_underscored}'):
                 os.makedirs(f'Submitted_Code/{team_name_underscored}')
@@ -137,8 +150,6 @@ class FinalSubmission(APIView):
                 f.write(html_code)
             with open(f'Submitted_Code/{team_name_underscored}/style.css', 'w') as f:
                 f.write(css_code)
-            with open(f'Submitted_Code/{team_name_underscored}/script.js', 'w') as f:
-                f.write(js_code)
 
             team.save()
             return Response({"message" : "Submitted"})

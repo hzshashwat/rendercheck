@@ -34,13 +34,13 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for users in the system"""
     team_name = models.CharField(max_length=150, null= True)
     leader_name = models.CharField(max_length=150, null= True)
-    leader_email = models.CharField(max_length=150, primary_key=True)
-    leader_year = models.CharField(max_length=150, null= True)
+    leader_email = models.EmailField(max_length=150, primary_key=True)
+    leader_year = models.IntegerField(null= True)
     member_name = models.CharField(max_length=150, null= True)
-    member_email = models.CharField(max_length=150, null= True)
-    member_year = models.CharField(max_length=150, null= True)
+    member_email = models.EmailField(max_length=150, null= True)
+    member_year = models.IntegerField(null= True)
     logged_in = models.BooleanField(default=False)
-    selected_schema = models.CharField(max_length=150, null= True)
+    selected_schema = models.IntegerField(null= True)
     final_submission_completed = models.BooleanField(default=False)
 
     is_active = models.BooleanField(default=True)
