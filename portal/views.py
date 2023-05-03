@@ -1,11 +1,6 @@
-from django.shortcuts import render
-from django.http.response import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from django.views import View
-import requests
-import json
 from portal.models import *
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
@@ -14,138 +9,37 @@ from portal.serializers import *
 import os
 
 # Create your views here.
-class UsersImport(View):
-    def get(self, request):
-        api_request = requests.get("https://blockverseapi.onrender.com/teamData")
+class UsersImport(APIView):
+    def post(self, request):
         try:
-            data = json.loads(api_request.content)
-            no_of_entries = len(data)
+            data = request.data
 
-            for i in range(0, no_of_entries):
+            team_name = data['team_name']
+            leader_name = data['leader_name']
+            leader_email = data['leader_email']
+            leader_year = data['leader_year']
+            member_name = data['member_name']
+            member_email = data['member_email']
+            member_year = data['member_year']
+            password = data['password']
 
-                # if data[i]['team_name'] is not None:
-                #     team_name = data[i]['team_name']
-                # else:
-                #     team_name = " "
+            UserProfile.objects.create_user(leader_email = leader_email, password=password)
 
-                # if data[i]['leader_name'] is not None:
-                #     leader_name = data[i]['leader_name']
-                # else:
-                #     leader_name = " "
-                    
-                # if data[i]['leader_email'] is not None:
-                #     leader_email = data[i]['leader_email']
-                # else:
-                #     leader_email = " "
-                
-                # if data[i]['leader_hosteler'] is not None:
-                #     leader_hosteler = data[i]['leader_hosteler']
-                # else:
-                #     leader_hosteler = " "
+            user = UserProfile.objects.get(leader_email = leader_email)
 
-                # if data[i]['leader_year'] is not None:
-                #     leader_year = data[i]['leader_year']
-                # else:
-                #     leader_year = " "
+            user.team_name = team_name
+            user.leader_name = leader_name
+            user.leader_year = leader_year
+            user.member_name = member_name
+            user.member_email = member_email
+            user.member_year = member_year
 
-                # if data[i]['leader_branch'] is not None:
-                #     leader_branch = data[i]['leader_branch']
-                # else:
-                #     leader_branch = " "
-                    
-                # if data[i]['leader_rollNo'] is not None:
-                #     leader_rollNo = data[i]['leader_rollNo']
-                # else:
-                #     leader_rollNo = " "
-                    
-                # if data[i]['leader_phoneNo'] is not None:
-                #     leader_phoneNo = data[i]['leader_phoneNo']
-                # else:
-                #     leader_phoneNo = " "                    
+            user.save()
 
-                # if data[i]['member_name'] is not None:
-                #     member_name = data[i]['member_name']
-                # else:
-                #     member_name = "Not provided"
-                                        
-                # if data[i]['member_phoneNo'] is not None:
-                #     member_phoneNo = data[i]['member_phoneNo']
-                # else:
-                #     member_phoneNo = "Not provided"
-                                        
-                # if data[i]['member_branch'] is not None:
-                #     member_branch = data[i]['member_branch']
-                # else:
-                #     member_branch = "Not provided"
-                                        
-                # if data[i]['member_email'] is not None:
-                #     member_email = data[i]['member_email']
-                # else:
-                #     member_email = "Not provided"
-                                        
-                # if data[i]['member_rollNo'] is not None:
-                #     member_rollNo = data[i]['member_rollNo']
-                # else:
-                #     member_rollNo = "Not provided"
-                                        
-                # if data[i]['member_hosteler'] is not None:
-                #     member_hosteler = data[i]['member_hosteler']
-                # else:
-                #     member_hosteler = "Not provided"
-                                                            
-                # if data[i]['member_year'] is not None:
-                #     member_year = data[i]['member_year']
-                # else:
-                #     member_year = "Not provided"
-
-                # if data[i]['password'] is not None:
-                #     password = data[i]['password']
-                # else:
-                #     password = ""
-
-
-                team_name = data[i]['team_name']
-                leader_name = data[i]['leader_name']
-                leader_email = data[i]['leader_email']
-                leader_hosteler = data[i]['leader_hosteler']
-                leader_year = data[i]['leader_year']
-                leader_branch = data[i]['leader_branch']
-                leader_rollNo = data[i]['leader_rollNo']
-                leader_phoneNo = data[i]['leader_phoneNo']
-                member_name = data[i]['member_name']
-                member_phoneNo = data[i]['member_phoneNo']
-                member_branch = data[i]['member_branch']
-                member_email = data[i]['member_email']
-                member_rollNo = data[i]['member_rollNo']
-                member_hosteler = data[i]['member_hosteler']
-                member_year = data[i]['member_year']
-                password = data[i]['password']
-
-                UserProfile.objects.create_user(leader_email = leader_email, password=password)
-
-                user = UserProfile.objects.get(leader_email = leader_email)
-
-                user.team_name = team_name
-                user.leader_name = leader_name
-                user.leader_hosteler = leader_hosteler
-                user.leader_year = leader_year
-                user.leader_branch = leader_branch
-                user.leader_rollNo = leader_rollNo
-                user.leader_phoneNo = leader_phoneNo
-                user.member_name = member_name
-                user.member_phoneNo = member_phoneNo
-                user.member_branch = member_branch
-                user.member_email = member_email
-                user.member_rollNo = member_rollNo
-                user.member_hosteler = member_hosteler
-                user.member_year = member_year
-
-                user.save()
-
-            return HttpResponse("Import Completed")
+            return Response({"message" : "User Created"})
         
         except Exception as e:
-            return HttpResponse(str(e))
+            return Response({"message" : str(e)})
         
 
 class CustomAuthToken(ObtainAuthToken):
