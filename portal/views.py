@@ -10,7 +10,7 @@ import os
 import requests
 
 # Create your views here.
-class UsersImport(APIView):
+class Registration(APIView):
     def post(self, request):
         try:
             data = request.data
