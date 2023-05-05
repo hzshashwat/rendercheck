@@ -22,7 +22,9 @@ class Registration(APIView):
             member_name = data['member_name']
             member_email = data['member_email']
             member_year = data['member_year']
-            password = data['password']
+            
+            password = "J72vgs9hbgf"
+
 
             UserProfile.objects.create_user(leader_email = leader_email, password=password)
 
@@ -43,23 +45,51 @@ class Registration(APIView):
             return Response({"message" : str(e)})
         
 
-class CustomAuthToken(ObtainAuthToken):
-    def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data,
-                                           context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        token, created = Token.objects.get_or_create(user=user)
+# class CustomAuthToken(ObtainAuthToken):
+#     def post(self, request, *args, **kwargs):
+#         serializer = self.serializer_class(data=request.data,
+#                                            context={'request': request})
+#         serializer.is_valid(raise_exception=True)
+#         user = serializer.validated_data['user']
+#         token, created = Token.objects.get_or_create(user=user)
 
-        try:
-            LeaderBoard.objects.create(team = user, team_name = user.team_name)
-        except:
-            pass
+#         try:
+#             LeaderBoard.objects.create(team = user, team_name = user.team_name)
+#         except:
+#             pass
         
-        return Response({
-            'token': token.key,
-            'email': user.leader_email
-        })
+#         return Response({
+#             'token': token.key,
+#             'email': user.leader_email
+#         })
+    
+class GoogleOAuth(APIView):
+    def post(self, request):
+        token = request.data.get('token')
+        try:
+            # idinfo = id_token.verify_oauth2_token(token, requests.Request())
+            # print(idinfo)
+            # email = idinfo['email']
+            email = request.data['email']
+            if UserProfile.objects.filter(leader_email=email).exists():
+                user = UserProfile.objects.get(leader_email = email)
+                token, created = Token.objects.get_or_create(user=user)
+                try:
+                    LeaderBoard.objects.create(team = user, team_name = user.team_name)
+                except:
+                    pass
+                return Response({
+                    'token': token.key,
+                    'email': user.leader_email
+                })
+            
+            else:
+                return Response({
+                    "message" : "User not registered"
+                })
+        except Exception as e:
+            return Response({'error' : str(e)})
+
     
 class ScoreApiViewSet(APIView):
     serializer_class = LeaderBoardSerializer

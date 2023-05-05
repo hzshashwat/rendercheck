@@ -3,7 +3,8 @@ from portal.views import *
 
 urlpatterns = [
     path('registration/', Registration.as_view()),
-    path('login/', CustomAuthToken.as_view()),
+    # path('clogin/', CustomAuthToken.as_view()),
+    path('login/', GoogleOAuth.as_view()),
     path('score/', ScoreApiViewSet.as_view()),
     path('leaderboard/', LeaderBoardAPIView.as_view()),
     path('schema_selection/', SchemaSelection.as_view()),
