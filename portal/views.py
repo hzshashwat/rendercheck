@@ -117,7 +117,7 @@ class ScoreApiViewSet(APIView):
             score = LeaderBoard.objects.get(team = self.request.user)
 
             if selected_schema == 1:
-                mlmodel_link = 'http://127.0.0.1:5000/deploy/'
+                mlmodel_link = 'https://mlmodel.pagekite.me/deploy/'
             elif selected_schema == 2:
                 mlmodel_link = ''
             
