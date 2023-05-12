@@ -90,6 +90,33 @@ class GoogleOAuth(APIView):
         except Exception as e:
             return Response({'error' : str(e)})
 
+class SchemaList(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format = None):
+        try:
+            team = UserProfile.objects.get(leader_email = self.request.user)
+            year = team.leader_year
+
+            schema_list = Schema.objects.filter(schema_year = year).all().values()
+            return Response({"schema_list" : schema_list})
+        except Exception as e:
+            return Response({"error": str(e)})
+        
+class AssetList(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format = None):
+        try:
+            team = UserProfile.objects.get(leader_email = self.request.user)
+            selected_schema = team.selected_schema
+
+            asset_list = SchemaAsset.objects.filter(schema_id = selected_schema).all().values()
+            return Response({"asset_list" : asset_list})
+        except Exception as e:
+            return Response({"error" : str(e)})
     
 class ScoreApiViewSet(APIView):
     serializer_class = LeaderBoardSerializer
