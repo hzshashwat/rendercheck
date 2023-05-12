@@ -67,6 +67,7 @@ class LeaderBoard(models.Model):
     team = models.OneToOneField(UserProfile, on_delete=models.CASCADE, primary_key=True)
     team_name = models.CharField(max_length=150)
     score = models.IntegerField(default=0)
+    time_taken = models.CharField(max_length=100)
 
 class Schema(models.Model):
     schema_id = models.IntegerField(primary_key=True)

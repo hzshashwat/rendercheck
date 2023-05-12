@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from portal.serializers import *
 import os
 import requests
-
+from datetime import datetime, timezone, timedelta
 # Create your views here.
 class Registration(APIView):
     def post(self, request):
@@ -156,6 +156,19 @@ class ScoreApiViewSet(APIView):
 
             score = LeaderBoard.objects.get(team = self.request.user)
 
+            #Time Duration Logic
+            event_start_time = datetime(2023, 5, 12, 21, 0, 0, tzinfo=timezone(timedelta(hours=5, minutes=30)))
+
+            current_time = datetime.now(timezone(timedelta(hours=5, minutes=30)))
+            time_taken = current_time - event_start_time
+            total_seconds = int(time_taken.total_seconds())
+            hours = total_seconds // 3600
+            minutes = (total_seconds % 3600) // 60
+            seconds = total_seconds % 60
+
+            time_taken_str = f"{hours}:{minutes:02d}:{seconds:02d}"
+            score.time_taken = time_taken_str
+
             if selected_schema == 1:
                 mlmodel_link = 'https://mlmodel.pagekite.me/deploy/'
             elif selected_schema == 2:
@@ -167,7 +180,7 @@ class ScoreApiViewSet(APIView):
             mlmodel_output = content["score"]
             score.score = mlmodel_output
             score.save()
-            return Response({'score' : mlmodel_output})
+            return Response({'score' : mlmodel_output, 'time_taken' : time_taken_str})
 
         except Exception as e:
             return Response({"error": str(e)})
