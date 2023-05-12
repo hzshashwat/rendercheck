@@ -138,7 +138,7 @@ class LeaderBoardAPIView(APIView):
 
     def get(self, request, format = None):
         try:
-            team = LeaderBoard.objects.all().values()
+            team = LeaderBoard.objects.all().order_by('-score').values()
             return Response({"message" : team})
 
         except Exception as e:
