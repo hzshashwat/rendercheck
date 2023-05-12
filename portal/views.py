@@ -104,6 +104,19 @@ class SchemaList(APIView):
         except Exception as e:
             return Response({"error": str(e)})
         
+class SchemaSelection(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self, request, format= None):
+        try:
+            team = UserProfile.objects.get(leader_email = self.request.user)
+            
+            team.selected_schema = request.data['schema']
+            team.save()
+            return Response({"message" : "Schema Info Updated"})
+        except Exception as e:
+            return Response({"error" : str(e)})
+        
 class AssetList(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -170,19 +183,6 @@ class LeaderBoardAPIView(APIView):
 
         except Exception as e:
             return Response({"error": str(e)})
-        
-class SchemaSelection(APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
-    def post(self, request, format= None):
-        try:
-            team = UserProfile.objects.get(leader_email = self.request.user)
-            
-            team.selected_schema = request.data['schema']
-            team.save()
-            return Response({"message" : "Schema Info Updated"})
-        except Exception as e:
-            return Response({"error" : str(e)})
 
 class FinalSubmission(APIView):
     authentication_classes = [TokenAuthentication]
