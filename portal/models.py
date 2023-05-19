@@ -76,6 +76,6 @@ class Schema(models.Model):
     schema_year = models.IntegerField()
 
 class SchemaAsset(models.Model):
-    schema_id = models.OneToOneField(Schema, on_delete=models.CASCADE, primary_key=True)
+    schema_id = models.ForeignKey(Schema, on_delete=models.CASCADE)
     asset_name = models.CharField(max_length=200, null=True)
     asset_url = models.URLField()

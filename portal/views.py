@@ -17,7 +17,7 @@ class Registration(APIView):
 
             team_name = data['team_name']
             leader_name = data['leader_name']
-            leader_email = data['leader_email']
+            leader_email = data['leader_email'].lower()
             leader_year = data['leader_year']
             member_name = data['member_name']
             member_email = data['member_email']
@@ -62,7 +62,6 @@ class Registration(APIView):
 #             'token': token.key,
 #             'email': user.leader_email
 #         })
-    
 class GoogleOAuth(APIView):
     def post(self, request):
         token = request.data.get('token')
@@ -70,7 +69,7 @@ class GoogleOAuth(APIView):
             # idinfo = id_token.verify_oauth2_token(token, requests.Request())
             # print(idinfo)
             # email = idinfo['email']
-            email = request.data['email']
+            email = request.data['email'].lower()
             if UserProfile.objects.filter(leader_email=email).exists():
                 user = UserProfile.objects.get(leader_email = email)
                 token, created = Token.objects.get_or_create(user=user)
