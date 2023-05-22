@@ -136,3 +136,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "portal.UserProfile"
+
+GOOGLE_CLIENT_ID = '706520946433-pcn2ssvgfb9tnk571tm93e2von3c1bcj.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET = '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'

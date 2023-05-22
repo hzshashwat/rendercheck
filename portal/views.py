@@ -9,6 +9,9 @@ from portal.serializers import *
 import os
 import requests
 from datetime import datetime, timezone, timedelta
+import json
+from django.conf import settings
+
 # Create your views here.
 class Registration(APIView):
     def post(self, request):
@@ -62,17 +65,51 @@ class Registration(APIView):
 #             'token': token.key,
 #             'email': user.leader_email
 #         })
+
+
 class GoogleOAuth(APIView):
     def post(self, request):
-        token = request.data.get('token')
+        authorization_code = request.data.get('authorization_code')
         try:
-            # idinfo = id_token.verify_oauth2_token(token, requests.Request())
-            # print(idinfo)
-            # email = idinfo['email']
-            email = request.data['email'].lower()
+            authorization_code_url = "https://oauth2.googleapis.com/token"
+
+            payload = json.dumps({
+            "code": authorization_code,
+            "client_id": settings.GOOGLE_CLIENT_ID,
+            "client_secret": settings.GOOGLE_CLIENT_SECRET,
+            "redirect_uri": "https://developers.google.com/oauthplayground",
+            "grant_type": "authorization_code"
+            })
+
+            headers = {
+            'Content-Type': 'application/json'
+            }
+
+            response = requests.request("POST", authorization_code_url, headers=headers, data=payload)
+
+            access_token = response.json()['access_token']
+
+            access_token_url = "https://www.googleapis.com/oauth2/v2/userinfo"
+
+            payload = {}
+            headers = {
+            'Authorization': f'Bearer {access_token}'
+            }
+
+            response = requests.request("GET", access_token_url, headers=headers, data=payload)
+
+            email = response.json()['email']
+
             if UserProfile.objects.filter(leader_email=email).exists():
                 user = UserProfile.objects.get(leader_email = email)
+
+                try:
+                    token = Token.objects.get(user=user)
+                    token.delete()
+                except Token.DoesNotExist:
+                    pass
                 token, created = Token.objects.get_or_create(user=user)
+
                 try:
                     LeaderBoard.objects.create(team = user, team_name = user.team_name)
                 except:
@@ -86,6 +123,7 @@ class GoogleOAuth(APIView):
                 return Response({
                     "message" : "User not registered"
                 })
+            
         except Exception as e:
             return Response({'error' : str(e)})
 
