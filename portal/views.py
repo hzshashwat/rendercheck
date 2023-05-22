@@ -77,7 +77,7 @@ class GoogleOAuth(APIView):
             "code": authorization_code,
             "client_id": settings.GOOGLE_CLIENT_ID,
             "client_secret": settings.GOOGLE_CLIENT_SECRET,
-            "redirect_uri": "https://developers.google.com/oauthplayground",
+            "redirect_uri": "https://blockverse.brlakgec.com",
             "grant_type": "authorization_code"
             })
 
