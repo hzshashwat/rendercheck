@@ -86,7 +86,7 @@ class GoogleOAuth(APIView):
             }
 
             response = requests.request("POST", authorization_code_url, headers=headers, data=payload)
-
+            
             access_token = response.json()['access_token']
 
             access_token_url = "https://www.googleapis.com/oauth2/v2/userinfo"
