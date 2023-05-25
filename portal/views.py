@@ -77,7 +77,7 @@ class GoogleOAuth(APIView):
             "code": authorization_code,
             "client_id": settings.GOOGLE_CLIENT_ID,
             "client_secret": settings.GOOGLE_CLIENT_SECRET,
-            "redirect_uri": "https://blockverse.brlakgec.com",
+            "redirect_uri": "postmessage",
             "grant_type": "authorization_code"
             })
 
