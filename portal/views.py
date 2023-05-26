@@ -203,7 +203,7 @@ class ScoreApiViewSet(APIView):
                     return Response({'status' : 501, 'message' : f'Request again after {cache.ttl(team.leader_name)} seconds'})
                 else:
                     pass
-            cache.set(team.leader_name, 1, timeout=120)
+            cache.set(team.leader_name, 1, timeout=75)
 
 
             score = LeaderBoard.objects.get(team = self.request.user)
