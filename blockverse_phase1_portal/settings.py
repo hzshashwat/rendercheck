@@ -149,3 +149,13 @@ AUTH_USER_MODEL = "portal.UserProfile"
 
 GOOGLE_CLIENT_ID = '908559699410-r9n223pa37dahsb359kr91pge6qv4tjh.apps.googleusercontent.com'
 GOOGLE_CLIENT_SECRET = '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'
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}

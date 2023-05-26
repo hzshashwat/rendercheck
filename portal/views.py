@@ -191,6 +191,20 @@ class ScoreApiViewSet(APIView):
             team = UserProfile.objects.get(leader_email = self.request.user)
             selected_schema = team.selected_schema
 
+            #Rate Limiter Setup
+            from django.core.cache import cache
+            from django.core.cache.backends.base import DEFAULT_TIMEOUT
+
+            if cache.get(team.leader_name):
+                total_calls = cache.get(team.leader_name)
+                print(total_calls)
+                if total_calls >= 1:
+                    return Response({'status' : 501, 'message' : f'Request again after {cache.ttl(team.leader_name)} seconds'})
+                else:
+                    pass
+            cache.set(team.leader_name, 1, timeout=120)
+
+
             score = LeaderBoard.objects.get(team = self.request.user)
 
             #Time Duration Logic
