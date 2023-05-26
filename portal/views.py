@@ -104,6 +104,7 @@ class GoogleOAuth(APIView):
                 user = UserProfile.objects.get(leader_email = email)
 
                 try:
+                    final_submission = user.final_submission_completed
                     token = Token.objects.get(user=user)
                     token.delete()
                 except Token.DoesNotExist:
@@ -116,7 +117,8 @@ class GoogleOAuth(APIView):
                     pass
                 return Response({
                     'token': token.key,
-                    'email': user.leader_email
+                    'email': user.leader_email,
+                    'final_submission' : final_submission
                 })
             
             else:
@@ -197,7 +199,6 @@ class ScoreApiViewSet(APIView):
 
             if cache.get(team.leader_name):
                 total_calls = cache.get(team.leader_name)
-                print(total_calls)
                 if total_calls >= 1:
                     return Response({'status' : 501, 'message' : f'Request again after {cache.ttl(team.leader_name)} seconds'})
                 else:
@@ -255,7 +256,7 @@ class FinalSubmission(APIView):
         try:
             team = UserProfile.objects.get(leader_email = self.request.user)
             
-            team.final_submission_completed = request.data['submitted']
+            team.final_submission_completed = True
 
             # Save the HTML, CSS & JS files
             team_name = team.team_name
