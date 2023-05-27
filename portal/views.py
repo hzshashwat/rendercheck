@@ -11,6 +11,7 @@ import requests
 from datetime import datetime, timezone, timedelta
 import json
 from django.conf import settings
+import base64
 
 # Create your views here.
 class Registration(APIView):
@@ -194,16 +195,16 @@ class ScoreApiViewSet(APIView):
             selected_schema = team.selected_schema
 
             #Rate Limiter Setup
-            from django.core.cache import cache
-            from django.core.cache.backends.base import DEFAULT_TIMEOUT
+            # from django.core.cache import cache
+            # from django.core.cache.backends.base import DEFAULT_TIMEOUT
 
-            if cache.get(team.leader_name):
-                total_calls = cache.get(team.leader_name)
-                if total_calls >= 1:
-                    return Response({'status' : 501, 'message' : f'Request again after {cache.ttl(team.leader_name)} seconds'})
-                else:
-                    pass
-            cache.set(team.leader_name, 1, timeout=75)
+            # if cache.get(team.leader_name):
+            #     total_calls = cache.get(team.leader_name)
+            #     if total_calls >= 1:
+            #         return Response({'status' : 501, 'message' : f'Request again after {cache.ttl(team.leader_name)} seconds'})
+            #     else:
+            #         pass
+            # cache.set(team.leader_name, 1, timeout=75)
 
 
             score = LeaderBoard.objects.get(team = self.request.user)
@@ -222,14 +223,35 @@ class ScoreApiViewSet(APIView):
             score.time_taken = time_taken_str
 
             if selected_schema == 1:
-                mlmodel_link = 'https://mlmodel.pagekite.me/deploy/'
+                with open('Schemas/test.png', "rb") as image_file:
+                    encoded_image = base64.b64encode(image_file.read())
+                
+                base64_image = encoded_image.decode('utf-8')
+                schemaImageBase64 = str(base64_image)
+                
             elif selected_schema == 2:
-                mlmodel_link = ''
-            
-            post_data = {'html_code': html_code, 'css_code': css_code}
-            response = requests.post(mlmodel_link, data=post_data)
+                schemaImageBase64 = ''
+            print("Request Sent")
+            url = "http://13.126.103.160:8000/getSimiliarity"
+
+            html = "<html><head><style>" + str(css_code) + "</style></head><body>" + str(html_code) + "</body></html>"
+
+            payload = json.dumps({
+            "html": html,
+            "height": 768,
+            "width": 1366,
+            "base64": False,
+            "schemaImageBase64": schemaImageBase64
+            })
+            headers = {
+            'Content-Type': 'application/json'
+            }
+
+            response = requests.request("POST", url, headers=headers, data=payload)
+            # print(response.text)
+            print("Response Recieved")
             content = response.json()
-            mlmodel_output = content["score"]
+            mlmodel_output = content["similarity_score"]
             score.score = mlmodel_output
             score.save()
             return Response({'score' : mlmodel_output, 'time_taken' : time_taken_str})
