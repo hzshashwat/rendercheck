@@ -194,17 +194,17 @@ class ScoreApiViewSet(APIView):
             team = UserProfile.objects.get(leader_email = self.request.user)
             selected_schema = team.selected_schema
 
-            #Rate Limiter Setup
-            # from django.core.cache import cache
-            # from django.core.cache.backends.base import DEFAULT_TIMEOUT
+            # Rate Limiter Setup
+            from django.core.cache import cache
+            from django.core.cache.backends.base import DEFAULT_TIMEOUT
 
-            # if cache.get(team.leader_name):
-            #     total_calls = cache.get(team.leader_name)
-            #     if total_calls >= 1:
-            #         return Response({'status' : 501, 'message' : f'Request again after {cache.ttl(team.leader_name)} seconds'})
-            #     else:
-            #         pass
-            # cache.set(team.leader_name, 1, timeout=75)
+            if cache.get(team.leader_name):
+                total_calls = cache.get(team.leader_name)
+                if total_calls >= 1:
+                    return Response({'status' : 501, 'message' : f'Request again after {cache.ttl(team.leader_name)} seconds'})
+                else:
+                    pass
+            cache.set(team.leader_name, 1, timeout=75)
 
 
             score = LeaderBoard.objects.get(team = self.request.user)
@@ -231,7 +231,7 @@ class ScoreApiViewSet(APIView):
                 
             elif selected_schema == 2:
                 schemaImageBase64 = ''
-            print("Request Sent")
+
             url = "http://13.126.103.160:8000/getSimiliarity"
 
             html = "<html><head><style>" + str(css_code) + "</style></head><body>" + str(html_code) + "</body></html>"
@@ -249,7 +249,7 @@ class ScoreApiViewSet(APIView):
 
             response = requests.request("POST", url, headers=headers, data=payload)
             # print(response.text)
-            print("Response Recieved")
+
             content = response.json()
             mlmodel_output = content["similarity_score"]
             score.score = mlmodel_output
