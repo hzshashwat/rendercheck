@@ -223,34 +223,35 @@ class ScoreApiViewSet(APIView):
             score.time_taken = time_taken_str
             
             #SCHEMAS
-            if selected_schema == 101:
-                with open('Schemas/101.jpg', "rb") as image_file:
-                    encoded_image = base64.b64encode(image_file.read())
+            # if selected_schema == 101:
+            #     with open('Schemas/101.jpg', "rb") as image_file:
+            #         encoded_image = base64.b64encode(image_file.read())
                 
-            elif selected_schema == 102:
-                with open('Schemas/102.jpg', "rb") as image_file:
-                    encoded_image = base64.b64encode(image_file.read())
+            # elif selected_schema == 102:
+            #     with open('Schemas/102.jpg', "rb") as image_file:
+            #         encoded_image = base64.b64encode(image_file.read())
 
-            elif selected_schema == 103:
-                with open('Schemas/103.jpg', "rb") as image_file:
-                    encoded_image = base64.b64encode(image_file.read())
+            # elif selected_schema == 103:
+            #     with open('Schemas/103.jpg', "rb") as image_file:
+            #         encoded_image = base64.b64encode(image_file.read())
 
-            elif selected_schema == 201:
-                with open('Schemas/201.jpg', "rb") as image_file:
-                    encoded_image = base64.b64encode(image_file.read())
+            # elif selected_schema == 201:
+            #     with open('Schemas/test.png', "rb") as image_file:
+            #         encoded_image = base64.b64encode(image_file.read())
 
-            elif selected_schema == 202:
-                with open('Schemas/202.jpg', "rb") as image_file:
-                    encoded_image = base64.b64encode(image_file.read())
+            # elif selected_schema == 202:
+            #     with open('Schemas/202.jpg', "rb") as image_file:
+            #         encoded_image = base64.b64encode(image_file.read())
 
-            elif selected_schema == 203:
-                with open('Schemas/203.jpg', "rb") as image_file:
-                    encoded_image = base64.b64encode(image_file.read())
+            # elif selected_schema == 203:
+            #     with open('Schemas/203.jpg', "rb") as image_file:
+            #         encoded_image = base64.b64encode(image_file.read())
 
-            base64_image = encoded_image.decode('utf-8')
-            schemaImageBase64 = str(base64_image)
+            # base64_image = encoded_image.decode('utf-8')
+            # schemaImageBase64 = str(base64_image)
+            # print(schemaImageBase64)
 
-            url = "http://13.126.103.160:8000/getSimiliarity"
+            url = "http://13.126.103.160:8000/getSimiliarityV2"
 
             html = "<html><head><style>" + str(css_code) + "</style></head><body>" + str(html_code) + "</body></html>"
 
@@ -259,7 +260,7 @@ class ScoreApiViewSet(APIView):
             "height": 768,
             "width": 1366,
             "base64": False,
-            "schemaImageBase64": schemaImageBase64
+            "schemaID": selected_schema
             })
             headers = {
             'Content-Type': 'application/json'
