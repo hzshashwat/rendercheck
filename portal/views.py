@@ -210,7 +210,7 @@ class ScoreApiViewSet(APIView):
             score = LeaderBoard.objects.get(team = self.request.user)
 
             #Time Duration Logic
-            event_start_time = datetime(2023, 5, 12, 21, 0, 0, tzinfo=timezone(timedelta(hours=5, minutes=30)))
+            event_start_time = datetime(2023, 5, 28, 9, 0, 0, tzinfo=timezone(timedelta(hours=5, minutes=30)))
 
             current_time = datetime.now(timezone(timedelta(hours=5, minutes=30)))
             time_taken = current_time - event_start_time
@@ -257,8 +257,8 @@ class ScoreApiViewSet(APIView):
 
             payload = json.dumps({
             "html": html,
-            "height": 768,
-            "width": 1366,
+            "height": 1024,
+            "width": 1440,
             "base64": False,
             "schemaID": selected_schema
             })
