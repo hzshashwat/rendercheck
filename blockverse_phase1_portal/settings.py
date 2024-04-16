@@ -93,34 +93,36 @@ WSGI_APPLICATION = 'blockverse_phase1_portal.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'blockverseportal1',
-#         'USER': 'hzshashwat',
-#         'PASSWORD': 'hzshashwatbrlcoe',
-#         'HOST':'blockverse23.ccltomrakgg4.ap-northeast-1.rds.amazonaws.com',
-#         'PORT':'3306',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blockversedb2',
+        'USER': 'hzshashwat',
+        'PASSWORD': '14isNOTaString',
+        'HOST':'blockverse2.cfm5jtohroni.ap-south-1.rds.amazonaws.com',
+        'PORT':'5432',
     }
 }
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'blockversephase1db',
-#         'USER': 'CloudSAf8a5dca7',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'blockverse24db',
+#         'USER': 'hzshashwat',
 #         'PASSWORD': '14isNOT@string',
-#         'HOST': 'blockverse-phase1.database.windows.net',
+#         'HOST': 'blockverse24dbserver.database.windows.net',
 #         'PORT': '1433',
+        
 #         'OPTIONS': {
 #             'driver': 'ODBC Driver 18 for SQL Server',
+#             'extra_params': 'TrustServerCertificate=no;Encrypt=yes;Connection Timeout=30;',
 #         },
 #     },
 # }
