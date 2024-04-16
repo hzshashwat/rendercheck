@@ -93,17 +93,37 @@ WSGI_APPLICATION = 'blockverse_phase1_portal.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'blockverseportal1',
+#         'USER': 'hzshashwat',
+#         'PASSWORD': 'hzshashwatbrlcoe',
+#         'HOST':'blockverse23.ccltomrakgg4.ap-northeast-1.rds.amazonaws.com',
+#         'PORT':'3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blockverseportal1',
-        'USER': 'hzshashwat',
-        'PASSWORD': 'hzshashwatbrlcoe',
-        'HOST':'blockverse23.ccltomrakgg4.ap-northeast-1.rds.amazonaws.com',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'blockversephase1db',
+#         'USER': 'CloudSAf8a5dca7',
+#         'PASSWORD': '14isNOT@string',
+#         'HOST': 'blockverse-phase1.database.windows.net',
+#         'PORT': '1433',
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 18 for SQL Server',
+#         },
+#     },
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -6,12 +6,20 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from portal.serializers import *
-import os
-import requests
 from datetime import datetime, timezone, timedelta
-import json
 from django.conf import settings
-import base64
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from threading import Lock
+import tensorflow as tf
+import numpy as np
+from tensorflow.keras.applications.resnet50 import preprocess_input
+from tensorflow.keras.preprocessing import image
+from PIL import Image
+import io, json, os, requests, base64
 
 # Create your views here.
 class Registration(APIView):
@@ -26,6 +34,12 @@ class Registration(APIView):
             member_name = data['member_name']
             member_email = data['member_email']
             member_year = data['member_year']
+            APIPin = data['APIPin']
+
+            if(APIPin == "7jkshcs3GH"):
+                pass
+            else:
+                return Response({"message" : "User Kicked Out"})
             
             password = "J72vgs9hbgf"
 
@@ -171,6 +185,51 @@ class AssetList(APIView):
         except Exception as e:
             return Response({"error" : str(e)})
     
+
+driver = None
+model = None
+lock = Lock()
+
+def get_driver():
+    global driver
+    with lock:
+        if driver is None:
+            chrome_options = Options()
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--window-size=1024,1440")
+            chrome_service = Service(ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+    return driver
+
+def get_model():
+    global model
+    with lock:
+        if model is None:
+            model = tf.keras.applications.ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+    return model
+
+def preprocess(image_data):
+    img = Image.open(io.BytesIO(image_data)).resize((224, 224))
+    x = np.array(img)
+    if x.ndim == 2:
+        x = np.stack((x,)*3, axis=-1)
+    elif x.shape[2] == 4:
+        x = x[..., :3]
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+    return x
+
+def image_similarity(img_data1, img_data2):
+    model = get_model()
+    img1 = preprocess(img_data1)
+    img2 = preprocess(img_data2)
+    features1 = model.predict(img1)
+    features2 = model.predict(img2)
+    features1 = features1.flatten()
+    features2 = features2.flatten()
+    similarity_score = np.dot(features1, features2) / (np.linalg.norm(features1) * np.linalg.norm(features2))
+    return similarity_score
+
 class ScoreApiViewSet(APIView):
     serializer_class = LeaderBoardSerializer
     authentication_classes = [TokenAuthentication]
@@ -222,6 +281,25 @@ class ScoreApiViewSet(APIView):
             time_taken_str = f"{hours}:{minutes:02d}:{seconds:02d}"
             score.time_taken = time_taken_str
             
+            # Selenium Code
+            driver = get_driver()
+
+            data = request.data
+            html_code = data['html_code']
+            css_code = data['css_code']
+            html = "<html><head><style>" + str(css_code) + "</style></head><body>" + str(html_code) + "</body></html>"
+            driver.get(f"data:text/html;charset=utf-8,{html}")
+            screenshot1 = driver.get_screenshot_as_png()
+
+            # Load an image from the root directory
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            image_path = os.path.join(base_dir, 'test.png')
+            with open(image_path, 'rb') as image_file:
+                screenshot2 = image_file.read()
+
+            similarity = image_similarity(screenshot1, screenshot2)
+            mlmodel_output = round(similarity * 100)
+
             #SCHEMAS
             # if selected_schema == 101:
             #     with open('Schemas/101.jpg', "rb") as image_file:
@@ -251,26 +329,7 @@ class ScoreApiViewSet(APIView):
             # schemaImageBase64 = str(base64_image)
             # print(schemaImageBase64)
 
-            url = "http://13.126.103.160:8000/getSimiliarityV2"
-
-            html = "<html><head><style>" + str(css_code) + "</style></head><body>" + str(html_code) + "</body></html>"
-
-            payload = json.dumps({
-            "html": html,
-            "height": 1024,
-            "width": 1440,
-            "base64": False,
-            "schemaID": selected_schema
-            })
-            headers = {
-            'Content-Type': 'application/json'
-            }
-
-            response = requests.request("POST", url, headers=headers, data=payload)
-            # print(response.text)
-
-            content = response.json()
-            mlmodel_output = content["similarity_score"]
+            
             score.score = mlmodel_output
             score.save()
             return Response({'score' : mlmodel_output, 'time_taken' : time_taken_str})
