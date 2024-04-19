@@ -26,7 +26,7 @@ class Registration(APIView):
     def post(self, request):
         try:
             data = request.data
-
+            print(data)
             team_name = data['team_name']
             leader_name = data['leader_name']
             leader_email = data['leader_email'].lower()
@@ -35,7 +35,7 @@ class Registration(APIView):
             member_email = data['member_email']
             member_year = data['member_year']
             APIPin = data['APIPin']
-
+            
             if(APIPin == "7jkshcs3GH"):
                 pass
             else:
@@ -196,7 +196,7 @@ def get_driver():
         if driver is None:
             chrome_options = Options()
             chrome_options.add_argument("--headless")
-            chrome_options.add_argument("--window-size=1024,1440")
+            chrome_options.add_argument("--window-size=1440,1024")
             chrome_service = Service(ChromeDriverManager().install())
             driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
     return driver
@@ -249,7 +249,8 @@ class ScoreApiViewSet(APIView):
             data = request.data
             html_code = data["html_code"]
             css_code = data["css_code"]
-
+            # print(html_code)
+            # print(css_code)
             team = UserProfile.objects.get(leader_email = self.request.user)
             selected_schema = team.selected_schema
 
@@ -269,7 +270,7 @@ class ScoreApiViewSet(APIView):
             score = LeaderBoard.objects.get(team = self.request.user)
 
             #Time Duration Logic
-            event_start_time = datetime(2023, 5, 28, 9, 20, 0, tzinfo=timezone(timedelta(hours=5, minutes=30)))
+            event_start_time = datetime(2024, 4, 20, 9, 5, 0, tzinfo=timezone(timedelta(hours=5, minutes=30)))
 
             current_time = datetime.now(timezone(timedelta(hours=5, minutes=30)))
             time_taken = current_time - event_start_time
@@ -290,10 +291,12 @@ class ScoreApiViewSet(APIView):
             html = "<html><head><style>" + str(css_code) + "</style></head><body>" + str(html_code) + "</body></html>"
             driver.get(f"data:text/html;charset=utf-8,{html}")
             screenshot1 = driver.get_screenshot_as_png()
+            # file_path = 'screenshot.png'  # Define the path where you want to save the screenshot
+            # driver.save_screenshot(file_path)
 
             # Load an image from the root directory
             base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            image_path = os.path.join(base_dir, 'test.png')
+            image_path = os.path.join(base_dir, f'designs/{selected_schema}.png')
             with open(image_path, 'rb') as image_file:
                 screenshot2 = image_file.read()
 
