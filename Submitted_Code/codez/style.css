@@ -1,0 +1,136 @@
+body
+{
+ background-image: url('https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png');
+}
+.box1
+{
+  height: 51.6px;
+width: 425;
+}
+.button1 {
+  height: 20.19px;
+width: 51.6px;
+border-color: #FFFFFF;
+margin-left: 700px;  
+border-radius: 100px; 
+}
+.button2 {
+ height: 19px;
+width: 47.3px;
+margin-left: 10px;
+  border-color: #FFFFFF;
+border-radius: 10px; 
+}
+.button3 { height: 19px;
+width: 68.8px;
+margin-left: 10px;
+ border-color: #FFFFFF;
+border-radius: 10px; 
+}
+.button4 {
+ height: 19px;
+width: 78.83px;
+margin-left: 10px;
+border-color: #FFFFFF;
+border-radius: 10px; 
+}
+.button5 {
+ height: 19px;
+width: 64.5px;
+margin-left: 10px;
+border-color: #FFFFFF;
+border-radius: 10px; 
+}
+.button6 {
+  width: 160.4px;
+height: 38.63px;
+margin-left: 30px;
+border-color: #FFFFFF;
+  border-radius: 100px; 
+background-color: #000000;
+  color: #FFFFFF
+}
+.button7 {
+margin-left: 10px;
+  border-color: #FFFFFF;
+background-color: #8A2BE2;
+  border-radius: 10px;   width: 200px;
+height: 45px;
+}
+  .button8 {
+margin-left: 10px;
+    border-color: #FFFFFF;
+background-color: #8A2BE2;
+  border-radius: 50%;   width: 60px;
+height: 45px;
+}
+.dr
+{
+font-family: Arial;
+font-size: 60px;
+color: #8A2BE2;
+}
+
+.imag
+{
+height: 500px;
+  margin-left: 800px;
+  margin-right: 10px;
+margin-top: 50px;
+}
+.box6
+{
+  border: 1px solid #000000;
+  HEIGHT: 216.38PX;
+  WIDTH: 1184.38PX;
+  MARGIN-LEFT: 150PX;
+  margin-top:100px;
+border-radius: 20px;
+}
+.box2
+{
+ height: 596.40;
+width: 551.27px;
+}
+.box3
+{
+color: #FFFFFF;
+font-family: Arial;
+ height: 63.84px;
+width: 456.74px;
+}
+.box4
+{
+ height: 60.16px;
+width: 300.29px;
+}
+.a1
+{
+color: #FFFFFF;
+font-family: Arial;
+font-size: 60px;
+}
+.a2
+{
+color: #FFFFFF;
+font-family: Arial;
+font-size: 60px;
+}
+.a3
+{
+color: #FFFFFF;
+font-family: Arial;
+font-size: 60px;
+}
+.imag
+{
+  float: right;
+  margin-right: 250px;
+width: 100px
+}
+.BOX5
+{
+  width: 550px;
+heigth: 400px;
+}
+

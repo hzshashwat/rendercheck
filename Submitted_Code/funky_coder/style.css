@@ -1,0 +1,60 @@
+ #logo img{
+width: 100px;
+}
+
+nav{
+  justify-content:centre;
+  align-item:centre;
+	display:flex;
+}
+
+#main{
+  display:flex;
+  align-text: centre;
+	color:white;
+}
+ul{ 
+list-style-type:none;
+  display: flex;
+}
+ul li a{
+  padding:10px 4px 20px;
+	
+}
+#bg {
+  position:relative;
+}
+
+#template{
+  display:flex;
+padding:10px
+}
+.bgimg{
+ /* The image used */
+  background-image: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/Image+(2).png");
+  width:100%;
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  /* Needed to position the navbar */
+  position: relative; 
+}
+
+.container{
+ position: absolute;
+  margin: 20px;
+  width: 100%
+display:flex;
+}
+#main h2{
+color:#FFFFFF;
+  margin:5rem;
+
+	
+}
+#template img{
+width:20%;

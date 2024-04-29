@@ -1,0 +1,174 @@
+*{
+  padding:0;
+  margin:0;
+  font-family:arial;
+
+}
+.main{
+  height:100vh;
+  width:100vw;
+  position:relative;
+}
+body{
+background-image:url("https://blockverse2024.s3.ap-south-1.amazonaws.com/Image+(2).png");
+  background-size:cover;
+}
+.main .first{
+  
+
+
+  width:100vw;
+  height:100vh;
+  
+
+}
+
+nav{
+  height:10vh;
+  width:100%;
+  position:absolute;
+  z-index:99;
+  top:0;  
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+
+
+}
+
+nav .second{
+  height:70%;
+  filter: brightness(0) invert(1);
+
+
+}
+nav .logo{
+ 
+  height:80%;
+  margin-left:30px;
+
+
+
+
+}
+nav .content{
+  display:flex;
+  gap:43px;
+  opacity:0.8;
+
+}
+
+nav .sign{
+  margin-right:50px;
+  
+}
+
+nav .sign button{
+  padding:10px 20px;
+}
+
+.sign .signIn{
+  background-color: rgba(0,0,0,0);
+  color:rgba(0,0,0,0.8);
+  border-radius:5px;
+  border:2px solid rgba(0,0,0,1);
+  margin-right:10px;
+}
+
+.sign .signUp{
+  border-radius:5px;
+  background: linear-gradient(90deg,#a383f3,#28C2F9);
+  border:none;
+}
+
+.hero{
+  height:50%;
+  width:100%;
+  position:absolute;
+  z-index:999;
+  top:190px;
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  gap:45px;
+
+ 
+}
+.hero h1{
+  position:absolute;
+  z-index:999;
+  font-size:82px;
+  width:50%;
+  text-align:center;
+}
+.hero p{
+  position:absolute;
+  top:200px;
+  font-size:22px;
+  width:43%;
+  text-align:center;
+  opacity:0.5;
+
+
+}
+.hero button{
+  position : absolute;
+  top:319px;
+  width:fit-content;
+  background-color:blue;
+  padding:15px 25px;
+  border-radius:3px;
+  font-size:18px;
+  border:none;
+  background: linear-gradient(90deg,#8058ac,#28C2F9);
+  
+
+}
+
+.cards{
+  position:absolute;
+  top:624px;
+  display:flex;
+  height:30%;
+  width:100%;
+  justify-content:center;
+  gap:39px;
+}
+
+.cards .card{
+  height:226px;
+  width:241px;
+  background-color:#1A1A23;
+  border-radius:10px;
+  border:2px solid black;
+  display:flex;
+  flex-direction:column;
+  gap:0px;
+  align-items:center;
+}
+.card .logo{
+  height:45px;
+  width:45px;
+  padding:8px 8px;
+}
+
+.card .long{
+  width:140px;
+  font-size:12px;
+  opacity:0.5;
+  padding:27px 0px;
+  text-align:center;
+}
+
+.arrow {
+  display:flex;
+  gap:15px;
+  color:#53525B;
+}
+
+.card .arrow img{
+  height:17px;
+  width:17px;
+  filter: brightness(0) invert(1);
+}

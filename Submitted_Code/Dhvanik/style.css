@@ -1,0 +1,138 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+input,button,textarea{
+    font: inherit;
+}
+
+html{
+    background: url(https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png);
+    background-size: cover;
+    background-position: 0 -100px;
+}
+
+body{
+    max-width: 1300px;
+    margin: 0 auto;
+    font-size: 20px; 
+    color: #fff;
+    min-height: 100vh; 
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0 100px 0 0;
+
+}
+
+.navbar_logo{
+    height: 46.24px;
+    width: 150px;
+}
+
+.nav_elements{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elements{
+    display: flex;  
+    flex-flow: row wrap; 
+    gap: 26.67px;
+    list-style-type: none;
+}
+
+.elements li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.contact{
+    background-color:#fff;
+    color: #000;
+    font-size: 18px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1.2rem;
+}
+
+.home{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 111px 0 0 0;
+
+}
+
+.highlight h1{
+    max-width: 551px;
+    display: flex;
+    flex-flow: column wrap;
+    font-size: 70px;
+}
+
+.home_img{
+    width: 563.55px;
+    height: 497.25px;
+}
+
+.hightext{
+    color: #b67df0;
+    font-size: 55px;
+}
+
+.content{
+    width: 465.32px;
+    margin: 1.5rem 0 1rem 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.buttons{
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+}
+
+button{
+    background-color: #956af2;
+    color: #000;
+    padding: 1.2rem;
+    margin: 3px;
+    font-size: 16px;
+    border-radius: 3rem;
+
+}
+
+.about{
+    margin: 65px 100px 0 0;
+    height: 217px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row; 
+    background-color: #956af2;
+    border: 3px solid #908a8a;
+    border-radius: 30px ;
+}
+
+.container{
+    width: 210px;
+}
+
+.container h3{
+    color: #000;
+    font-size: 30px ;
+    font-weight: 900;
+    text-align: center;
+    margin: 3px 0;
+}

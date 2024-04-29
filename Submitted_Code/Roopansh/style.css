@@ -1,0 +1,135 @@
+.btn-group{
+    display: inline-block;
+}
+
+.outer image{
+    height: 100px;
+    width: 200px;
+}
+
+.outer{
+    display: inline-block;
+}
+
+button{
+    position: relative;
+    left: 500px;
+}
+
+.head{
+    position: relative;
+    top: 100px;
+    left: 500px;
+}
+
+.para{
+  position:relative;
+    top: 100px;
+    left: -450px;
+    text-align: center;
+}
+div a{
+    position: relative;
+    left: 150px;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+
+.card1{
+    border: solid black 2px;
+    position: relative;
+    top: 150px;
+    left: 300px;
+    border-radius: 20%;
+    height: 200px;
+    width: 200px;
+}
+
+.card2{
+    border: solid black 2px;
+    position: relative;
+    
+    left: 600px;
+    border-radius: 20%;
+    height: 200px;
+    width: 200px;
+}
+
+.card3{
+    border: solid black 2px;
+    position: relative;
+    top: -250px;
+    left: 900px;
+    border-radius: 20%;
+    height: 200px;
+    width: 200px;
+}
+
+.card1 span{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.card1 h1{
+    position: relative;
+    top: 30px;
+    left: 20px;
+}
+
+.card1 p{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.card1 img{
+    position: absolute;
+}
+
+.card2 h5{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.card2 div{
+    position: relative;
+    top: 20px;
+    left: 70px;
+}
+
+.card2 #one{
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    left: 40px;
+    top: 80px;
+}
+
+ .card2 #two{
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    right: 40px;
+    top: 80px;
+}
+
+.card2 #three{
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    left: 30px;
+    bottom: 30px;
+}
+
+.card2 #four{
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    right: 30px;
+    bottom: 30px;
+} 
+
+

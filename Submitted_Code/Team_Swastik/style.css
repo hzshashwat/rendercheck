@@ -1,0 +1,234 @@
+* {
+    margin: 3px;
+    /* background-color:#672d71; */
+  /* background-color: linear-gradient(to right, #0B0416, #41283F 56%, #41064B 66%); */
+  background-image: linear-gradient(to bottom, #0B0416 100%, #2B0439 66%, #39074B 56%);
+font-family: Arial, Helvetica, sans-serif;
+    color :white;
+    
+    
+}
+.list{
+  margin-left: 100px;
+margin-right: 38px;
+}
+.list , .list li , .login , .login li ,.navbar , .navbar li , .icons , .icons li , .transparent , .transparent li{
+    display: inline-block;
+}
+.list li{
+    margin-right: 63px;
+}
+.login li{
+  margin-right: 41px;
+
+}
+#logo{
+    width: 129px;   
+    height: 39px;
+}
+.icons{
+  margin-left: -40px;
+margin-top: 30px;
+}
+.icons_li, #icons_li {
+    height: 26px;
+    width: auto;
+    font-size: 26px;
+    margin-right: 15px;
+}
+#icons_li{
+    display: inline-block;
+    position: relative;
+    bottom: 4px;
+}
+.only_one{
+    width: 450px;
+    height: 350px;
+}
+.right{
+    display: inline-block;
+    position: relative;
+    width: 400px;
+  top: 50px;
+	left:60px;
+
+}
+.left{
+    display: inline-block;
+    position: relative;
+    width: 603px;
+    left : 80px;
+    /* bottom: 140px; */
+}
+.arrow{
+    width: 32px;
+    height: 34px;
+}
+.text ,#learn , .line{
+    display: inline-block;
+}
+.learn{
+    position:relative;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 50px;
+    
+}
+#learn{
+    position: relative;
+    margin-left: 20px;
+}
+.line{
+    font-size: 4em;
+    text-transform: capitalize;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.text{
+    font-size: 1.3em;
+    color: #52456C;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 603px;
+}
+.sign_in{
+    background-image: linear-gradient(
+        90deg,
+        hsl(280deg 11% 36%) 0%,
+        hsl(280deg 12% 34%) 9%,
+        hsl(280deg 13% 33%) 18%,
+        hsl(279deg 14% 31%) 27%,
+        hsl(279deg 16% 29%) 36%,
+        hsl(279deg 17% 27%) 45%,
+        hsl(279deg 19% 26%) 55%,
+        hsl(279deg 20% 24%) 64%,
+        hsl(278deg 22% 22%) 73%,
+        hsl(278deg 25% 21%) 82%,
+        hsl(278deg 27% 19%) 91%,
+        hsl(278deg 30% 17%) 100%
+      );
+      border-radius: 5px;
+      border:none;
+      /* background-color: transparent; */
+      opacity: .6;
+      height: 39px;
+      width: 89px;
+      font-size: 1.2em;
+}
+.bit_coin{
+    position: relative;
+    top: -25px;
+    left: 35px;
+  width: 415px;
+height:80px;
+    line-height: 25px;
+background: rgba(255, 255, 255, 0.46);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+border: 1px solid rgba(255, 255, 255, 0.13);
+}
+.bit_coin ul{
+    border: none;
+}
+.bit_coin li{
+    margin-right:60px;
+    position: relative;
+    /* height: 100px; */
+}
+.block p , .block img , .block button{
+    position: relative;
+    display: inline-block;
+    /* width: 500px; */
+}
+.block img{
+    width:22px;
+    
+}
+.started{
+    background-image: linear-gradient(
+        90deg,
+        hsl(280deg 11% 36%) 0%,
+        hsl(280deg 12% 34%) 9%,
+        hsl(280deg 13% 33%) 18%,
+        hsl(279deg 14% 31%) 27%,
+        hsl(279deg 16% 29%) 36%,
+        hsl(279deg 17% 27%) 45%,
+        hsl(279deg 19% 26%) 55%,
+        hsl(279deg 20% 24%) 64%,
+        hsl(278deg 22% 22%) 73%,
+        hsl(278deg 25% 21%) 82%,
+        hsl(278deg 27% 19%) 91%,
+        hsl(278deg 30% 17%) 100%
+      );
+      border-radius: 5px;
+      border:none;
+      /* background-color: transparent; */
+      opacity: .6;
+      height: 42px;
+      width: 115px;
+      font-size: 1.2em;
+}
+.navbar{
+  position: relative;
+margin:auto;
+
+    margin-bottom: 37px;    
+
+    top : 40px;
+
+}
+.navbar li{
+  position:relative;
+  justify-content: space-between;
+  margin-left:20px;
+margin-right: 20px;
+}
+
+.navbar li {
+    border : 2px solid #8E65E7;
+    padding: 10px;
+    border-radius: 10px;
+    width : 170px;
+    text-align: center;
+    
+}
+.color {
+    color: #672d71;
+}
+.bit_coin{
+background: rgba(255, 255, 255, 0.46);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+border: 1px solid rgba(255, 255, 255, 0.13);
+}
+.bit_coin ul{
+  background-color: white;
+opacity: 0.1;
+}
+ 
+/* navbar styling */
+
+
+/* .list{ */
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* margin-right: 60px; */
+    /* margin-bottom: 37px; */
+
+/* } */
+
+
+.buy button{
+  color: white;
+background-color: orange;
+  display : inline-block;
+  position : relative; 
+  bottom: 40px;
+left: 250px;
+
+    /* z-index : -1; */
+    /* color : cyan;   */
+}

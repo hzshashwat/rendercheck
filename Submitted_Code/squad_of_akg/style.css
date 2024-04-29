@@ -1,0 +1,27 @@
+h1{
+    color: rgb(72, 0, 255);
+}
+h1{
+  line-height: .2; /* This reduces the gap between lines of text in a paragraph */
+}
+p{
+  line-height: .2
+}
+h2{
+  line-height: 150%; /* Sets the line height to 150% of the current font size */
+}
+button{
+background color: rgb(72, 0, 255);
+}
+body{ 
+}
+
+
+
+
+
+
+
+
+
+

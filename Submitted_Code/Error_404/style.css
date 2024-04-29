@@ -1,0 +1,92 @@
+*{
+                 
+background-color:black
+;
+color : white;
+}
+.img1{
+  width:98px;
+  height:27px;}
+.abcd{
+  display: flex;
+justify-content:space-evenly;}
+.abcd_1{
+  display: flex;}
+.abcd0{
+   width:44.74px;
+  height:15px;
+  text-align:center;}
+.abcd1{
+   width:44.74px;
+  height:15px;
+text-align:center;}
+.abcd2{
+   width:44.74px;
+  height:15px;
+  text-align:center;}
+.abcd3{
+  width:54.32px;
+  height:15px;
+    text-align:center;}
+.abcd4{
+   width:37.67px;
+  height:15px;
+text-align:center;}
+.abcd5{
+   width:47.93px;
+  height:15px;
+text-align:center;}
+.abcd6{
+   width:44.74px;
+  height:15px;
+  text-align:center;}
+.abcd7{
+   width:55.39px;
+  height:15px;
+  text-align:center;}
+.abcd8{
+   width:40px;
+  height:15px;
+  text-align:center;}
+button {
+  border: none;
+  color: white;
+  background-color:#808080;
+  border-radius:10px;
+  color: white;
+  font-size: 12px;
+  margin-right: 100px;
+  position:absolute;
+}
+.title{
+  text-align:center;}
+.text1{
+  width:97px;
+  height:26px;
+}
+.title2{
+text-align:center;
+}
+.img2{border-style: solid;
+  height:300px;
+  width:300px;
+padding:2px;}
+.a{
+margin:2px;  
+border-radius:10px;
+height:26px;
+width:97px;}
+.b{
+font-size:42px;
+}
+.c{
+  font-size:10px;}
+.img3{
+width:98px;
+  height:27px;}
+.d{
+margin:2px;  
+border-radius:10px;
+height:26px;
+width:97px;}
+

@@ -1,0 +1,134 @@
+
+body{
+  background-image: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+.nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50px;
+   color: white;
+}
+.icon{
+  width: 150px;
+  height: 150px;
+  /* margin: 10px; */
+  background-image: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/new4.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 300px;
+    
+  
+}
+.navr{
+  display: flex;
+  flex-direction: row;
+  
+}
+.backc{
+  /* width: 10px; */
+  background-color: white;
+  border-radius: 80px;
+  color: black;
+  text-align: center;
+  margin-left: 50px;
+  padding-right: 30px;
+  
+}
+#image{
+  height: 497.25px;
+  width: 563.55px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  background-image: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/new.png");
+  image-rendering: pixelated;
+  margin-left: 158.35px;
+  margin-top: 110.9px;
+  
+}
+.con{
+  display: flex;
+  justify-content: center;
+}
+#text{
+  font-size: 30px;
+   margin-top: 40.9px;
+  margin-left: 130px;
+  line-height: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  
+}
+#para{
+  font-size: 10px;
+   line-height: 13px;
+  color: white;
+}
+#dre {
+  color: #B67DF0;
+  
+}
+#arrow{
+  background-color: #B67DF0;
+
+  image-rendering: pixelated;
+  border: 20px solid #B67DF0;
+  border-radius: 35px;
+  color: white;
+   font-size: 20px;
+  
+}
+#start{
+  background-color: #B67DF0;
+  border: 20px solid #B67DF0;
+  border-radius: 40px;
+  color: black;
+  font-size: 20px;
+
+}
+#arr{
+  height: 20px;
+}
+.spa {
+  margin-top: 38.06px;
+}
+.foot{
+  height: 216.38px;
+  width: 1050.38px;
+  border: 1px solid white;
+  background-color: #B67DF0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: ;
+  margin-top: 64.94px;
+  margin-left: 130px;
+  border-radius: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+#pos{
+  color: #B67DF0;
+  /* height: 22.1px;
+  width: 22.1px; */
+  font-size: 22.1px;
+}
+h2{
+  margin-left: 70px;
+  color: black;
+  height: 13.51px;
+  width: 192.76;
+  font-weight: bolder;
+  
+}
+#sec{
+  margin-left: 100px;
+}
+#thir{
+  margin-left: 100px;
+  margin-top: 42px;
+}

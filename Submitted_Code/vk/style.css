@@ -1,0 +1,55 @@
+
+.block{
+  background-color:black;
+  color: blaCK;
+  border: 2px ;
+}
+.unlock{
+  color: white;
+  font-size:23px;
+}
+.url{
+position:absolute;
+  right: 10px;
+  width: 500px;
+  border: 30px;
+  padding: 10px;
+}
+.flex{
+display: flex;
+}
+.flexo{
+  display:flex; margin: 10px;
+  padding: 10px;
+  font-size: 10px;
+
+}
+.about{
+position: absolute;
+  right: 1px;
+color: white;
+ margin: 10px;
+  font-size: 10px;
+}
+.success{
+font-size:10px;
+}
+.start{
+background-color:blue;
+  color: white;
+border-radius: 10px 5px;
+  font-size:10px;
+}
+body {
+  background-image: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png");
+background-size:cover;
+}
+.flexn
+{
+  display: flex;
+
+}
+.arr{
+position:absolute;
+  right: 10px;
+}

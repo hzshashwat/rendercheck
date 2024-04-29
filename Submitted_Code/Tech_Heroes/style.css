@@ -1,0 +1,178 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:inter;
+color:white;
+}
+body{
+  background-image:url(https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png);
+  background-repeat:no-repeat;background-size:1500px;
+
+}
+a {
+  color:white;
+  font-size:19px;
+font-style:default;
+  text-decoration: none;
+}
+
+
+/*======================================================
+                          Navbar
+  ======================================================*/
+#navbar {
+  height: 60px;
+  line-height: 51.6px;
+  width: 1062.11px;
+background:transparent;
+}
+
+.nav-wrapper {
+  margin: auto;
+  text-align: center;
+  width: 70%;
+}
+
+
+.logo {
+  float: left;
+  margin-right:30px;
+margin-left:-80px;
+  height: 46.24px;
+  width:150px;
+ position:relative;top:12px;
+  letter-spacing: 1px;
+} 
+#navbar ul {
+  display: inline-block;
+  float: right;
+  list-style: none;
+  /* margin-right: 14px; */
+  margin-top: -2px;
+  text-align: right;
+  margin-right:-480px;
+}
+#navbar li {
+  display: inline-block;
+}
+
+#navbar li a {
+  color:white;
+  display: block;
+  font-size: 0.7em;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 0 20px;
+  padding: 0 4px;
+  position: relative;
+  text-decoration: none;
+
+}
+#navbar li button
+{
+  color:black;
+background:white;
+border-radius:20px;
+  height:35px;
+width:130px;
+}
+.space{
+height:110px;
+}
+.float-container {
+padding: 20px;
+display:flex;
+}
+
+.float-child {
+  width: 50%;
+height:497.25px;
+    float:right;
+  padding: 20px;
+}
+.unlock{
+  width: 80%;
+height:400px;
+  float: left;
+   font-size:;
+  padding: 20px;
+
+}
+.float-child1 {
+    flex:1;
+    width: 30%;
+    float: left;
+    padding: 20px;
+
+}
+#main
+{
+  height:497.25px;
+  width:563.55px;
+ margin-left:120px;
+}
+h1{
+  font-size:80px;
+} 
+#p1
+{
+  color:#e07cf1;
+  font-size:60.16px;
+}
+#p2
+{
+  font-size:60px;
+}
+.para
+{
+  height:63.84px;
+  display:flex;
+color:#8a8a8a;
+}
+.space1
+{
+  height:35px;
+}
+.btn1
+{
+  height:60.16px;
+  width:195.22px;
+  border-radius:30px;
+background:#8a2be2 ;
+color:white;
+}
+.btn2
+{
+  height:60.16px;
+  width:65.07px;
+  border-radius:60.16px;background:#8a2be2;
+    margin-top:30px;
+
+}
+.perc{
+display:flex;
+  height:216.38px;
+  padding:20px;
+border:5px solid #c6c6c6;
+  border-radius:40px;
+background:#8a2be2;
+}
+.left{
+  flex:left;
+  padding:60px;
+  margin-left:300px;
+  font-size:22.1px;
+}
+.center{
+  flex:center;
+  padding:60px;font-size:22.1px;
+
+}
+.right{
+flex:right;
+  padding:60px;
+  margin-right:180px;font-size:22.1px;
+}
+b{color:#956AF2;}

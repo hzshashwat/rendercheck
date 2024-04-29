@@ -1,0 +1,14 @@
+body {
+  background-image :url("https://blockverse2024.s3.ap-south-1.amazonaws.com/Image+(2).png");
+}
+#navbar {
+  height:18px;
+width:538px;
+  margin:auto;
+  padding:25px 50px;
+display:inline-block;
+  align-items:center;
+  text-align:center;
+
+}
+

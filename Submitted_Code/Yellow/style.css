@@ -1,0 +1,118 @@
+body{
+  margin-left:50px;
+  margin-top:30px;
+  background-image:url("https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png");
+  background-size:cover;
+ }
+#top{
+  height:46.24px;
+  width:150px;}
+
+#middle{
+  height:350px;
+  width:450px;
+  position:absolute;
+  right:150px;
+  top:140px;
+}
+#a1{
+  position:absolute;
+  right: 700px;
+  top:40px; 
+  color:white;
+  text-decoration:none;
+  font-family:bold;
+  height:20.19;
+  width:51.6;
+}
+#a2{
+  position:absolute;
+  right: 630px;
+  top:40px;
+  color:white;
+  text-decoration:none;
+  font-family:bold;
+  height:20.19;
+  width:47.6;
+}
+#a3{
+  position:absolute;
+  right: 545px;
+  top:40px;
+  color:white;
+  text-decoration:none;
+   font-family:bold;
+}
+#a4{
+  position:absolute;
+  right: 450px;top:40px;
+  color:white;
+  text-decoration:none;
+   font-family:bold;
+}
+#a5{
+  position:absolute;
+  right: 360px;top:40px;
+  color:white;
+  text-decoration:none;
+  font-family:bold;
+
+ }
+#btn1{
+  position:absolute;
+  right:180px;
+  top:35px;
+  background-color:white;
+  color:black;
+  height:30px;
+  width:150px;
+  border-radius:20px;
+  border-color:white;
+}
+#btn2{
+  height:50px;
+  width:200px; 
+  border-radius:20px;
+  background-color:#b67df0;
+  color:white;
+  border-color:#b67df0;
+}
+#btn3{
+  height:50px;
+  width:50px; 
+  border-radius:25px;
+  background-color:#b67df0;
+  color:white;
+  border-color:#b67df0;
+margin-left:15px;
+}
+#bt{
+height:20px;
+  width:30px;
+  padding-left:10px;
+
+}
+#back{
+  position:absolute;
+  top:500px;
+  right:50px;
+  width:50px;
+  height:50px;
+}
+#first{
+  display:flex;
+  border-color:black;
+}
+#last{
+padding:40px;
+}
+#middlep{
+  font-family:arial;
+   font-size:20px;
+}
+.box1{
+  background-color:#b67df0;
+  border-radius:40px;
+  width:900px; 
+  height:190px;
+margin-left:100px}

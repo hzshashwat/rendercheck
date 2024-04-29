@@ -1,0 +1,113 @@
+*{
+font-family: arial;
+}
+body{
+  background-image: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/Image+(2).png");
+background-size: cover;
+}
+#navbar{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.navbar1{
+  height: 60px;
+  width : 100px;
+  color: white;
+}
+#navbar2{
+  display: flex;
+  width: 538px;
+  height: 18px;
+
+}
+#signin{
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  height: 40px;
+}
+#signup{
+  background-color: cyan;
+  color: white;
+  height: 40px;
+ 
+  border: 2px solid cyan;
+  border-radius: 4px;
+}
+#login{
+  display: flex;
+
+}
+#logo {
+  height: 40px;
+  width: 129px;
+  background-image: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/blockchainlogo+(white)+3.png");
+  background-size: cover;
+}
+#main{
+  align-items: center;
+}
+H1{
+  COLOR: WHITE;
+  text-align: center;
+  font-size: 50px;
+   margin-top: 100px;
+}
+#mainpara{
+  color: darkgrey;
+  text-align: center;
+  
+}
+#getstarted{
+  background-color: cyan;
+   border: 2px solid cyan;
+  margin-left: 600px;
+  margin-top: 40px;
+  transform: scale(2);
+  border-radius: 4px;
+  color: white;
+
+}
+#container{
+  display: flex;
+  flex-direction: row;
+  margin-left: 230px;
+  margin-top: 100px; 
+  height : 226px;
+  width:  801px;
+  justify-content: space-around;
+}
+.box1{
+  height: 230px;
+  width : 300 px;
+  background-color: #1A1A23;
+  
+  border-radius: 8px;
+}
+pre{
+ color: white
+}
+h3{
+  color: white;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+  font-weight: bold;
+  color: darkgrey;
+}
+.img1{
+  position: relative;
+  left: 65px;
+  top: 10px;
+
+}
+#hello{
+color: purple;
+}
+
+
+
+

@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body{
+  background: url("https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png");
+ background-size: cover;
+}
+.main {
+	height: 100vh;
+  font-family: roboto;
+}
+
+.header{
+margin: auto;
+max-width: 1200px;
+padding: 25px 20px ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+align-items: center;
+}
+
+.logo img {
+  width: 150px;
+  height: 46.24px;
+}
+
+.list_items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  gap: 45px;
+  font-weight: 800px;
+  color: #ffffff;
+}
+
+
+.contact_button {
+  width: 150px;
+height: 40px;
+  border: none;
+color : #000000;
+background-Color: #ffffff;
+  border-radius: 30px;
+border: 2px solid #21212
+
+}
+
+.hero_section {
+  display: flex;
+  margin: auto;
+margin-top: 50px;
+
+max-width: 1150px;
+}
+
+.right_side {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.banner_img {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left_side {
+  width: 50%;
+  display: flex;
+  align-items: lefyt;
+  justify-content: center;
+      flex-direction: column;
+}
+
+
+.hero_heading1 {
+      font-size: xxx-large;
+  font-weight: 600;
+color: #ffffff
+
+}
+
+.hero_heading3 {
+      font-size: xxx-large;
+  font-weight: 600;
+color: #ffffff
+
+
+}
+
+.hero_heading2 {
+      font-size: xxx-large;
+  font-weight: 600;
+color:#B67DF0;
+
+}
+
+.hero_heading4 {
+      font-size: xxx-large;
+  font-weight: 600;
+color: #ffffff
+
+
+}
+
+.hero_text {
+margin: 30px 0px;
+}
+
+.hero_text p {
+  margin: 3px 0;
+   font-weight: 500;
+	color : rgb(143, 141, 141);
+
+}
+
+.btn_arrow {
+  display: flex;
+
+}
+
+.start_btn {
+display: inline-block;
+  width: 150px;  
+margin-right: 10px;
+border: none;
+background: #956AF2;
+border-radius: 30px;
+  color: #000000;
+font-weight: bold;
+
+}
+
+.arrow_image {
+  color: red;
+  background: #956AF2;
+width: 3rem;
+border-radius: 25px;
+color: #ffff;
+}
+
+.info_section {
+	margin: auto;
+  max-width: 1150px;
+margin-top: 65px;
+}
+
+.stats {
+  border: 3px solid rgba(211, 206, 206, 0.5);
+  background: #B67DF0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius:23px;
+  height: 150px;
+  box-shadow: 0 7px  rgba(211, 206, 206, 0.3)
+;
+}
+
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats :nth-child(3) p {
+  width: 300px;
+  text-align: center;
+
+}
+
+ .stat p { 
+  color : #ffffff;
+}
+

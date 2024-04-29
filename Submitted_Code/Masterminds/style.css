@@ -1,0 +1,99 @@
+body{
+  background-image:url("https://blockverse2024.s3.ap-south-1.amazonaws.com/Image+(2).png");
+  background-size:cover;
+background-repeat:no-repeat;
+
+
+}
+nav a{
+  padding: 30px;
+margin:80px;
+  text-align:center;
+  color:white;
+  justify-content:center;
+
+
+
+}
+h1{
+  text-align:center;
+  color:white;
+  font-size:100px;
+}
+h5{
+  text-align:center;
+  font-size:40px;
+  color:white;
+}
+.container{
+display:flex;
+}
+.item{
+
+  flex:1;
+
+}
+.item{
+  color:white;
+  
+  border:1px solid white;
+  background:linear-gradient(to right , #8451FE, #28C2F9);
+  width:1px;
+  height:15px;
+  border-radius:5px;
+  
+text-align:center
+}
+.logo{
+
+  position:absolute;
+  top:10px;
+  left:10px;
+}
+.logo{
+width:5px;
+}
+.parent{
+display:grid;
+  color:white;
+  grid-template-rows:repeat(auto-fit, minmax(200px, 1fr));
+grid-gap:40px;
+
+
+
+
+}
+.color{
+color:purple;
+}
+.flex1{
+  border:1px solid white;
+border-radius:5px;
+}
+.flex2{
+  border:1px solid white;
+border-radius:5px;
+
+}
+.flex3{
+  border:1px solid white;
+border-radius:5px;
+
+}
+.sign{
+
+  position:absolute;
+  top:20px;
+  right:20px;
+ background:linear-gradient(to right , #8451FE, #28C2F9);
+  border-radius:2px;
+}
+.log{
+ position:absolute;
+  top:20px;
+  right:100px;
+border:1px solid white;
+  border-radius:2px;
+}
+
+

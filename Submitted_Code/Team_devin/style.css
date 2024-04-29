@@ -1,0 +1,184 @@
+
+        /*to style position*/
+        .navbar{
+        position: absolute;
+        top:20px;
+        right:100px;
+        padding:10px;
+}
+        .navbar a {
+        padding:30px;
+          text-decoration:none;
+        color:#fff;
+}
+
+#contact{
+  padding:10px;
+  text-decoration:none;
+  background-color:white;
+border-radius:100px;
+width:400px;
+        color:black;
+}
+
+ /* to locate the logo*/
+        .logo{
+        position:absolute;
+        top:20px;
+        right:1300px;
+}
+ .photo{
+        position:absolute;
+       top:100px;
+}
+#head1{
+position:absolute;
+  margin:20px;
+  width:340.1px;
+  height:80px;
+font-family: Arial, sans-serif;
+        top:100px;
+  right:1000px;
+ color:white;
+}
+#head2{
+position:absolute;
+margin:20px;
+  width:273.8px;
+font-family: Arial, sans-serif;
+color:white;
+  height:60.16px;
+        top:180px;
+  right:1070px;
+color:#B67DF0;
+
+}
+
+h1{
+
+  font-size:70px;}
+p{
+  font-size:60px;
+color:white;
+}
+
+#pa1{
+position:absolute;
+  margin:20px;
+  width:551.27px;
+  height:72.44px;
+font-family: Arial, sans-serif;
+        top:260px;
+  right:800px;
+}
+
+#pa2{
+position:absolute;
+  margin:20px;
+  width:551.27px;
+  height:72.44px;
+font-family: Arial, sans-serif;
+        top:330px;
+  right:800px;
+}
+
+ .container {
+            display: flex;
+            justify-content: space-between;
+            background-color:#B67DF0; 
+   padding: 10px;
+border-radius:20px;
+
+        }
+.section {
+            flex: 1;
+            padding: 10px;
+           
+            background-color:#B67DF0; 
+}
+ .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: black;
+        color: #333;
+        text-align: center;
+        padding: 10px;
+    }
+#bott{
+font-size:14px;
+color:white;
+}
+#bottm1{
+font-size:14px;
+  color:white;
+font-family: Arial, sans-serif;
+  right:1270px;
+  top:450px;
+position:absolute;
+z-index: 1; /* Adjust the stacking order */
+
+}
+#bottm2{
+font-size:14px;
+  color:white;
+font-family: Arial, sans-serif;
+  right:1270px;
+  top:480px;
+position:absolute;
+z-index: 1; /* Adjust the stacking order */
+}
+#bottm3{
+font-size:14px;
+  color:white;
+font-family: Arial, sans-serif;
+  right:1270px;
+  top:510px;
+position:absolute;
+z-index: 1; /* Adjust the stacking order */
+ }
+
+#bottm4{
+font-size:14px;
+  color:white;
+font-family: Arial, sans-serif;
+  right:1270px;
+  top:540px;
+position:absolute;
+z-index: 1; /* Adjust the stacking order */
+ }
+
+body{
+  background:url("https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png");
+  background-size:cover;
+background-position:center;
+
+
+}
+#hello {
+  background-color: #B67DF0; /* Set the background color to blue */
+  color: black; /* Set the text color to white */
+  padding: 0px 0px; /* Add padding to the button */
+  border: none; /* Remove default border */
+  border-radius: 30px; /* Add border radius for rounded corners */
+right:1110px;
+  top:575px;
+  position:absolute;
+z-index: 1; /* Adjust the stacking order */
+
+
+}
+#hello1 {
+  background-color: #B67DF0; /* Set the background color to blue */
+  color: black; /* Set the text color to white */
+  padding: 10px 20px; /* Add padding to the button */
+  border: none; /* Remove default border */
+  border-radius: 20px; /* Add border radius for rounded corners */
+right:1270px;
+  top:600px;
+  position:absolute;
+z-index: 1; /* Adjust the stacking order */
+
+
+}

@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #f1f1f1;
+  padding: 10px 0;
+}
+
+.logo {
+  float: left;
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  padding: 40px 0;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+}
+
+.hero-text {
+  flex: 1; /* Allows text content to grow and fill available space */
+}
+
+.hero h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;

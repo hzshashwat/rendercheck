@@ -1,0 +1,92 @@
+.navbar{
+line-height:110.9px;
+}
+.img1{
+  width:150px;
+  height:46.24px;
+  position:relative;
+top:25px;
+}
+.btn{width:160.54px;
+  height:51.6px;
+cursor:pointer;
+  background-color:black;
+  float:right;
+  color:white;
+  border-radius:40px;
+  border:2px solid #928899;
+  position:relative;
+  top:25px;
+  margin-bottom:3px;
+}
+a{
+height:19px;
+  margin:auto 28.67px;
+  float:right;
+font-family:arial;
+}
+.img3{
+width:500.55px;
+ height:397.25px;
+  float:right;
+margin-left:150px;
+}
+.heading{
+  font-family:arial;
+  color:black;
+}
+#dreams{
+  color:#B67DF0;
+}
+.para{
+  font-family:arial;
+}
+.firstpara{
+  width:551.27px;
+  height:63.84px;
+}
+button{
+  width:195.22px;
+  height:60.16px;
+border-radius:40px;
+background-color:#956AF4;
+  border:1px solid #956AF4;
+  color:white;
+  line-height:64.98px;
+cursor:pointer;
+
+}
+.img2{
+background-color:#956AF4;
+  height:60.16px;
+  width:65.07px;
+  border-radius:100%;
+  position:relative;
+  right:5px;
+  top:25px;
+}
+.container{
+  border:2px solid #928899;
+  text-decoration:none;
+  position:relative;
+top:64.90px;
+  border-radius:10px;
+margin: 200px;
+}
+#foot1{
+  float:right;
+}
+#foot3{
+  float:right;
+}
+#foot1{
+  float:right;
+}
+
+
+
+
+
+
+
+

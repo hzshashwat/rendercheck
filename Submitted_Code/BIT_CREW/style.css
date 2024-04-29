@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+
+}
+h1{
+    font-size: 55px;
+    line-height: 64px;
+    color:white
+}
+h2{
+    font-size: 55px;
+    line-height: 54px;
+    
+}
+h1{
+    font-size: 55px;
+    
+}
+h1{
+    font-weight: 55px
+    font-size:12px;
+}
+p{
+    font-size: 20px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+.section-p1{
+    padding: 40px 80px;
+}
+.section-m1{
+    margin: 40px 0;
+}
+body{
+    width: 100%;
+}
+#header{
+    display: flex;
+    align-items:right;
+    justify-content: space-between;
+    padding: 5px 10px;
+   
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    
+
+
+}
+#nevbar{
+    display: flex;
+    align-items:right;
+    justify-content: right;
+
+}
+#nevbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+#nevbar li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 1000;
+    color: #1a1a1a;
+    transition: 0.09ms;
+}
+#nevbar li a:hover,
+#nevbar li a.active{
+    color:#000000;
+}
+#nevbar li a.active::after,
+#nevbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #64937f;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+#hero h2{ color: rgb(220, 208, 255); }
+#hero{
+    background-image:url("https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:70vh;
+    width: 100%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+#hero h4{
+    padding-bottom: 15px;
+
+}
+#hero button:hover{
+    color: bisque;
+
+
+header {
+    background-image: url('https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png'); /* Replace 'header_bg.jpg' with your actual image file path */
+    background-size: cover;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#hero {
+    background-image: url('https://blockverse2024.s3.ap-south-1.amazonaws.com/image+16.png'); /* Replace 'hero_bg.jpg' with your actual image file path */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+
+
+

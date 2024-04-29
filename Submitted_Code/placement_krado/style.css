@@ -1,0 +1,118 @@
+
+body {
+background: black;
+   
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    : centre;
+    background-color: ;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1198px;
+    margin: 0 auto;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    height: 27px;
+}
+
+.nav {
+    
+  float: right;
+  align-items: centre;
+}
+
+.nav ul {
+    
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: grey;
+}
+
+.main {
+    padding: 40px 0;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h2 {
+  color: white;
+   
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1em;
+    color: white;
+    line-height: 1.5;
+}
+
+.income {
+    display: flex;
+    justify-content: space-between;
+    
+  margin-bottom: 40px;
+   color: white;
+}
+
+.income-wrapper {
+    display: flex;
+  align-items: center;
+   color: white;
+}
+
+.income h3 {
+    margin-right: 20px;
+}
+
+.income p {
+    font-size: 1.5em;
+}
+
+.income button {
+    background-color: ;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.data {
+    text-align: center;
+   color: white;
+}
+
+.data img {
+    width: 200px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.data-text {
+    display: inline-block;
+  color: white;
+}
+
+.data-text h4
